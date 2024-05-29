@@ -1,0 +1,791 @@
+/*
+COLORS
+
+Pink: #B90BBB; //from TV
+Purple: #7F03C3; //from TV
+
+Dark purple: #0D0026; //from BG
+
+Light Blue: #7FDFFF; //from TV
+Blue: #009FE7; //from TV
+Muted Blue: #006993; //from TV
+
+Dark Blue: #181E80; //from BG
+
+*/
+
+*, 
+*::after, 
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html {
+    font-size:62.5%;
+}
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    /* font-size: 16px; */
+    line-height: 1.7;
+    color: #777;
+    /* padding: 3rem; */
+
+    box-sizing: border-box;
+
+    min-height:100vh;
+}
+/* Header */
+.header {
+    height:95vh;
+    max-width:100%;
+    overflow:hidden;
+
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(185, 11, 187, .8),
+        /* rgba(127, 223, 255, .9)), */
+        /* rgba(0, 105, 147)), */
+        rgba(0, 159, 231, .9)),
+        url("../images/MaericTVDigitalBG_BlackWhite.png");
+    background-size: cover;
+    background-position: top;
+
+    /* Origin from which top and left start to count in logo-box */
+    position:relative;
+
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+/* 
+    backface-visibility: hidden; */
+}
+.header__logo-box {
+    position:absolute;
+    /* top: 5%;
+    left: 5%; */
+    /* top: 25%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%) scale(5.0); */
+    padding:4rem;
+
+    animation: moveToTopLeft 2s ease-in;
+
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+.header__logo {
+    height:12rem;
+}
+.header__text-box {
+    position:absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    text-align: center;
+}
+.heading-primary {
+    color:#ffffff;
+    text-transform: uppercase;
+
+    text-align: center;
+
+    /* So it doesn't shack with animation below */
+    backface-visibility: hidden;
+    margin-bottom: 8rem;
+}
+.heading-primary--main {
+    display: block;
+    font-size: 10rem;
+    font-weight: 600;
+    letter-spacing: 2rem;
+
+    text-align: center;
+
+    animation-name: moveInLeft;
+    animation-duration: 3s;
+    animation-timing-function: ease-out;
+
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+    /*  
+    animation-iteration-count: 3;
+    animation-delay: 3s; 
+    */
+}
+.heading-primary--sub{
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 500;
+    letter-spacing: 1.4rem;
+
+    text-align: center;
+
+    animation: moveInRight 3s ease-out;
+    animation-delay: 1s;
+    animation-fill-mode: backwards;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+        /* transform: translateY(400px); */
+    }
+    80% {
+        transform: translateX(1rem);
+
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(10rem);
+        /* transform: translateY(400px); */
+    }
+    80% {
+        transform: translateX(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes moveToTopLeft {
+    0% {
+        top:45%;
+        left:50%;
+        transform: translate(-50%, -50%) scale(4.0);
+     }
+    100%{
+        top: 0;
+        left: 0;
+        transform: scale(1.0);
+     }
+}
+
+.btn:link,
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.6rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    transition: all .2s;
+    position:relative;
+}
+.btn:hover {
+    transform: translateY(-.3rem);
+    box-shadow: 0 .5rem 1rem rgba(127, 3, 195, .2);
+}
+.btn:active {
+    transform: translateY(-.1rem);
+    box-shadow: 0 .5rem 1rem rgba(127, 3, 195, .2);
+}
+.btn--white {
+    background-color: #ffffff;
+    color: #B90BBB;
+
+    font-size:2.6rem;
+    font-weight:500;
+}
+.btn::after {
+    content: "";
+    display:inline-block;
+    height:100%;
+    width:100%;
+    border-radius:10rem;
+    position:absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: all .4s;
+}
+.btn--white::after {
+    background-color:#ffffff;
+}
+.btn:hover::after {
+    transform: scaleX(1.2) scaleY(1.5);
+    opacity: 0;
+}
+.btn--animated {
+    animation: moveInBottom .5s ease-out;
+    animation-delay: 3.75s;
+    animation-fill-mode: backwards;
+    /* backwards makes it so the 0% is set to begin with */
+}
+
+.home-main{
+    padding: 3rem 0;
+}
+.event-section {
+    height:75vh;
+    padding: 5vh 5vw 0 5vw;
+
+    display:flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-items: center;
+    /* justify-content: center;
+    align-content: center; */
+
+    animation: eventScrollIn 1s linear infinite;
+    /* animation-delay: 3.75s; */
+    /* animation-fill-mode: backwards; */
+    animation-play-state: paused;
+    animation-delay: calc(var(--scroll) * -1.8s);
+    animation-iteration-count: 1;
+    animation-fill-mode: both;
+}
+@keyframes eventScrollIn {
+    0% {
+        opacity: 0;
+        transform: translateX(20rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+  }
+.event-section h2 {
+    font-size:4.8rem;
+    background: -webkit-linear-gradient(#b90bbb, #009de6);
+    background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    text-align: center;
+}
+.coffee-break-event {
+    margin: 10vh 0;
+    width:80vw;
+    max-width:80rem;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+}
+.event-image img {
+    transition: transform 330ms ease-in-out;
+    transform: scale(.95);
+}
+.event-image img:hover {
+    transform: scale(1);
+}
+.event-blurb {
+    padding-left:5vw;
+    font-size:1.8rem;
+}
+.community {
+    height:75vh;
+    /* max-width:100%; */
+    /* overflow:hidden; */
+
+    background-image: linear-gradient(
+        to right bottom,
+        rgba(185, 11, 187, .8),
+        rgba(0, 159, 231, .9));
+    background-size: cover;
+    background-position: top;
+    clip-path: polygon(0 15vh, 100% 0, 100% 60vh, 0 100%);
+
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: center;
+}
+.community p {
+    color:#ffffff;
+    font-size:3rem;
+    margin-bottom:2rem;
+}
+.community__discord-logo {
+    height:10vh;
+    padding-left:2.4rem;
+    padding-right:2.4rem;
+    padding-top:.4rem;
+    border: 2px solid #ffffff;
+    border-radius: 25px;
+    box-shadow: 0 1rem 1.5rem rgba(127, 3, 195, .2);
+
+    transition: transform 330ms ease-in-out;
+    transform: scale(.9);
+    cursor:pointer;
+}
+.community__discord-logo:hover {
+    transform: scale(.94);
+}
+.community__discord-logo img {
+    height:100%;
+}
+
+
+/*FFXIV Styles*/
+.ffxiv-header {
+    height:10vh;
+    background-color:rgba(154, 0, 52);
+    /* position:absolute; */
+    z-index:999;
+    width:100%;
+}
+.ffxiv-header {
+    /* position:fixed;
+    top:0; */
+
+    color:white;
+    font-size: 42px;
+    text-align: center;
+    letter-spacing:.3rem;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+
+    font-family: 'Wendy One', sans-serif;
+    /* font-family: 'Rammetto One', cursive; */
+    /* font-family: 'Righteous', cursive; */
+
+    font-weight: 400;
+}
+.ffxiv-nav-sub {
+    /* margin-top:10vh; */
+
+    display:flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items:center;
+    justify-items: center;
+
+    background-color:white;
+    border-top:1px solid white;
+    border-bottom:1px solid #9a0034;
+    height:5vh;
+
+    font-size:2rem;
+}
+.ffxiv-nav-sub div {
+    background-color: rgba(242, 225, 223,.4);
+    color: rgba(154, 0, 52,1);
+    font-weight:600;
+
+    flex:1;
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    align-content: center;
+    justify-items: center;
+ 
+    height:100%;
+    cursor: pointer;
+}
+.ffxiv-nav-sub div:hover {
+    background-color: rgba(242, 225, 223,1);
+    color:rgba(154, 0, 52,.8);
+}
+.ffxiv-nav-sub div a {
+    color: rgba(154, 0, 52);
+    text-decoration: none;
+
+}
+.ffxiv-main {
+    background-image: url("../images/MerryMoogleImage.png");
+    background-size:20vw;
+    background-position:right bottom;
+    background-repeat: no-repeat;
+    height:80vh;
+    width:100vw;
+
+    position:relative;
+}
+.ffxiv-content{
+    background-color:rgba(255,255,255,.8);
+    height:80vh;
+    padding-right:20vw;
+    padding-top:5vh;
+    padding-left:5vw;
+    padding-bottom:5vh;
+
+    font-size: 1.2rem;
+    font-weight: 400;
+
+    overflow: auto;
+}
+.ffxiv-content h2 {
+    font-size:1.4rem;
+    display:flex;
+    justify-items: center;
+    align-content: center;
+}
+.ffxiv-content h2 img {
+    padding-left:.4rem;
+    height: 100%;
+}
+#ffxiv-aboutus {
+    display:block;
+    font-size: 1.4rem;
+	height:100%;
+}
+.ffxiv-home-gallery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top:5vh;
+}
+.ffxiv-home-gallery .galleryThumb {
+    flex:1;
+}
+.galleryThumb img {
+    width:90%;
+}
+#ffxiv-structure{
+    display:none;
+    height:100%;
+}
+.kupoStyle{
+    font-style: italic;
+    font-weight: 700;
+    font-size:1.6rem;
+}
+.ffxiv-buttons {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    padding-bottom:5vh;
+}
+.ffxiv-button {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.6rem 4rem;
+    display: inline-block;
+    border-radius: 10rem;
+    cursor: pointer;
+    background-color:rgba(154, 0, 52, 1);
+    color:white;
+}
+.ffxiv-button:hover {
+    background-color:rgba(154, 0, 52, .8);
+}
+.merryMoogleRanks{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: flex-start;
+    justify-items: flex-start;
+    align-items:flex-start;
+
+    /* height:100%; */
+    padding-bottom:5vh;
+}
+.merryMoogleRank {
+    display:flex;
+    flex-direction: row;
+    flex: 0 1 33%;
+    justify-content: flex-start;
+    align-content: space-between;
+    /* justify-items: center;
+    align-items:center; */
+    margin-top:5vh;
+    height: 100%;
+}
+.mmRankImage {
+    padding-right:2rem;
+    flex:.4;
+    display:flex;    
+    justify-content: flex-end;
+}
+.mmRankText {
+    flex:1;
+    padding-right:2rem;
+}
+.mmRankImage, .mmRankText {
+    height: 100%;
+}
+footer {
+    height:5vh;
+    background-color:rgba(154, 0, 52);
+    position:fixed;
+    bottom:0;
+    z-index:999;
+    width:100%;    
+}
+
+
+
+  /* --------------------------------- juniSTRONG page --------------------------------- */
+.juniSTRONG_page {
+    background-color: #006993;
+    height:100vh;
+    width:100vw;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start; /* centers it vertically */
+    align-items: center; /* centers it horizontally */
+}
+.juniSTRONG_header img {
+    margin-top:5vh;
+    margin-bottom:5vh;
+    height:40vh;
+}
+.juniSTRONG_about {
+    background-color: white;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding:3%;
+}
+.juniSTRONG_about p {
+    width:60%;
+    font-size: 1.4rem;
+    text-align: center;
+}
+.juniSTRONG_thankyou {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width:100%;
+    /* background-color: #FFC1DC; */
+}
+.juniSTRONG_donors, .juniSTRONG_streamers {
+    background-color: #FFC1DC;
+    height:100%;
+    width:100%;
+    /* width:50vw; */
+}
+.juniSTRONG_streamers_title, .juniSTRONG_donors_title {
+    background-color: #FF60A5;
+    text-align: center;
+    /* font-size: 1.2rem; */
+    padding:4px;
+}
+.juniSTRONG_streamers_title h1, .juniSTRONG_donors_title h1 {
+    color: white;
+}
+.juniSTRONG_streamers_names, .juniSTRONG_donors_names {
+    padding:5%;
+    text-align: center;
+    line-height:2.1;
+    color:#405162;
+    font-size:1.3em;
+
+}
+.juniSTRONG_streamers_names p, .juniSTRONG_donors_names p {
+    line-height:1.4;
+    color:#405162;
+    /* font-size:1; */
+
+    height:540px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: white #FF60A5;
+}
+.juniSTRONG_streamers_names a {
+    text-decoration: none;
+    color:#405162;
+    /* font-size:1.4em; */
+}
+.juniSTRONG_streamers_names a:hover {
+    color: #006993;
+}
+.juniSTRONG_disclaimer_privacy {
+    background-color: #FFC1DC;
+    width:100%;
+
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+.juniSTRONG_disclaimer_privacy p {
+
+    color:lightslategray;
+    font-size:10px;
+    text-align: center;
+
+    padding:2%;
+    width:60%;
+}
+.cellofragHourStyle {
+    font-size:10px;
+}
+.juniSTRONG_discord {
+    background-color: white;
+
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding:3%;
+}
+.juniSTRONG_discord p {
+    width:60%;
+    text-align: center;
+}
+.juniSTRONG_discord p, .juniSTRONG_discord a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #405162;
+}
+.juniSTRONG_discord img {
+    padding:3%;
+}
+.juniSTRONG_footer {
+    background-color: #FF60A5;
+    text-align: center;
+    width:100%;
+    color: white;
+    font-size:10px;
+    padding:4px;
+}
+
+
+@media only screen and (max-width:991px){
+    html {
+        font-size:4px;
+    }
+
+    .btn--white {    
+        font-size:4rem;
+    }
+    .event-section {
+        height:95vh;    
+        animation: none;
+    }
+    .event-section h2 {
+        font-size: 6rem;
+    }
+    .coffee-break-event {
+        flex-direction: column; 
+    }
+    .event-image img {
+        transition: none;
+        transform: scale(.8);
+    }
+    .event-image img:hover {
+        transform: none;
+    }
+    .event-blurb {
+        padding-left:0;
+        font-size:3.6rem;
+    }
+
+      /* --------------------------------- FFXIV page --------------------------------- */
+    .ffxiv-main {
+        background-image: none;
+    }
+    .ffxiv-content{
+        height:90vh;
+        padding-right:5vw;
+        padding-top:4vh;
+        padding-left:5vw;
+        padding-bottom:5vh;
+    
+        font-size: 3rem;
+    
+        /* overflow: auto; */
+    }
+    .kupoStyle{
+        font-size:3.5rem;
+    }
+    #ffxiv-aboutus {
+        font-size: 3rem;
+    }
+    .ffxiv-content h2 {
+        font-size: 3.5rem;
+    }
+    .ffxiv-home-gallery {
+        flex-direction: column;
+        justify-content: center;
+    }
+    .galleryThumb img {
+        width:100%;
+        margin-bottom:2vh;
+    }
+    /* FFXIV Merry Moogle page */
+    .ffxiv-buttons {
+        flex-direction: column;        
+    }
+    .ffxiv-nav-sub {
+        /* margin-top:10vh; */
+    
+        display:flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items:center;
+        justify-items: center;
+    
+        height:5vh;
+    
+        font-size:2.5rem;
+    }
+    .merryMoogleRank {
+        flex: 0 1 100%;
+    }
+    .merryMoogleRank:nth-child(even) {
+        flex-direction: row-reverse;
+        flex: 0 1 100%;
+    }
+
+
+    /* --------------------------------- juniSTRONG page --------------------------------- */
+    .juniSTRONG_about p {
+        width:80%;
+        font-size: 2.4rem;
+    }
+    .juniSTRONG_thankyou {
+        flex-direction: column;
+        justify-content: flex-start;
+    }
+    .juniSTRONG_streamers_title, .juniSTRONG_donors_title {
+        font-size: 1.4rem;
+    }
+    .juniSTRONG_streamers_names, .juniSTRONG_donors_names {
+        font-size:2.2em;    
+    }
+    .juniSTRONG_streamers_names p, .juniSTRONG_donors_names p {
+        height: 400px;
+    }
+    .juniSTRONG_disclaimer_privacy p {
+        font-size:2.4rem;
+        padding:2%;
+        width:90%;
+    }
+    .juniSTRONG_disclaimer_privacy a {
+        font-size:2.4rem;
+    }
+    .cellofragHourStyle {
+        font-size:8px;
+    }
+    .juniSTRONG_discord p {
+        width:80%;
+        font-size:2.4rem;
+    }
+    .juniSTRONG_discord a {
+        font-size:2.4rem;
+    }
+    .juniSTRONG_discord img {
+        width:100%;
+    }
+    .thankYouVid iframe {
+        width:80vw;
+
+    }
+}

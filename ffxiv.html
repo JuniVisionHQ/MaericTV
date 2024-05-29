@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" 
+      type="image/png" 
+      href="images/MaericTVnoText.png">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rammetto+One&family=Righteous&family=Spicy+Rice&family=Wendy+One&display=swap" rel="stylesheet"> 
+
+
+    <link rel="stylesheet" type="text/css" href="stylesheet/styles.css">
+    <script src="scripts/canvas.js"></script>
+
+    <title>MaericTV | Streamer and Content Creator</title>
+
+</head>
+<body>
+    <header class="ffxiv-header">
+        <nav id="ffxiv-nav">
+            <div class="ffxiv-nav-item">Merry Moogles</div>
+        </nav>    
+    </header>
+    <div class="ffxiv-nav-sub">
+        <div onclick="showFFXIVSection('ffxiv-aboutus')" class="">About Us</div>
+        <div class=""><a href="https://na.finalfantasyxiv.com/lodestone/freecompany/9232379236109648309/" target="_blank">Official Lodestone Listing</a></div>
+        <div onclick="showFFXIVSection('ffxiv-structure')" class="">Structure</div>
+    </div>
+    
+    <div class="ffxiv-main">
+        <div class="ffxiv-content">
+            <!-- <div class="ffxiv-buttons">
+                <div onclick="showFFXIVSection('ffxiv-aboutus')" class="ffxiv-button">About Us</div>
+                <a href="https://na.finalfantasyxiv.com/lodestone/freecompany/9232379236109648309/" target="_blank"><div class="ffxiv-button">Official Lodestone Listing</div></a>
+                <div onclick="showFFXIVSection('ffxiv-structure')" class="ffxiv-button">Structure</div>
+            </div> -->
+            <div id="ffxiv-aboutus">
+                <span class="kupoStyle">Kupo! Kupo!</span>
+                <br><br>
+                Hello and Welcome to the Merry Moogles! (MeMo)
+                <br><br>
+                A young FC, but with a lot of heart! We hope to build a community for players that encompasses all aspects of the game. We are looking for players of all levels, skills and experience. Whether you are a Sprout, a Returner, or a Veteran, we want you as part of the family!
+                <br><br>            
+                Currently, we love to run daily roulettes, mount farms, and treasure maps!  We also have a small house in the Mists that our decorators can use to express their interior design skills.
+                <br><br>
+                Most of our members are active between 6pm and 12am EST, during the weekdays and a little later on the weekends. We do have a few members that are in different timezones as well. The one thing we can guarantee is a friendly, inclusive, responsive environment for new and veteran members alike.
+                <br><br>
+                The fastest way to join us is by jumping in our Discord! We have a whole area dedicated to the Merry Moogles FC! Come in and say hello! <a href="https://discord.gg/bemerry" target="_blank">discord.gg/bemerry</a>
+
+
+                <div class="ffxiv-home-gallery">
+                    <div class="galleryThumb"><img src="./images/merrymoogles/homegalleryhome.jpg"></div>
+                    <div class="galleryThumb"><img src="./images/merrymoogles/homegallerymogboss.jpg"></div>
+                    <div class="galleryThumb"><img src="./images/merrymoogles/homegallerydecorate.jpg"></div>
+
+                </div>
+            </div>
+            <div id="ffxiv-structure">
+                <div class="merryMoogleRanks">
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage" style="padding-right:0">
+                            <img src="./images\merrymoogles\MogQueenIcon.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Good Queen Mog <img src="./images/merrymoogles/0.png"></h2>
+                            Creator and leader of the Merry Moogles.                     
+                        </div>
+
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_03_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Mog Mod <img src="./images/merrymoogles/1.png"></h2>
+                            This is our moderator role. If you are playing FFIXV and are also a moderator in the MaericTV Community,
+                            you most likely have this role.<br><br>
+                            For any Merry Moogle in distress who needs to speak with a Mod, these are the moogles
+                            to send a message to. They will help you resolve any conflicts that arise.                                               
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_12_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Airship Manager <img src="./images/merrymoogles/13.png"></h2>
+                            Airships and Submarines are very important to an FC. They allow us to gain valuable resources
+                            that fund our many community endeavors, including the purchase of a larger FC house. You are incredible at 
+                            managing large quanitites of items and using the market boards to your advantage. You're great at making gil.  
+                            Thank you for taking on this important role!                                           
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images/merrymoogles/Mogri_icon_11_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Event Planner <img src="./images/merrymoogles/14.png"></h2>
+                            These generous souls run scheduled events. You lead raids, trials, and dungeons. You help keep everyone
+                            motivated and continually spread positivity while teaching some of the game's hardest content. Thank you for being the 
+                            backbone of our FC.
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_01_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Mooglesguard <img src="./images/merrymoogles/3.png"></h2>
+                            These are the helpers. Those who take an active hand in contributing to the free company with their time and energy. You don't 
+                            have a weekly schedule like the Event Planners, but you put together many impromtu activities like roulettes, 
+                            treasure maps, or mount farms. You help out and we appreciate you!
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images/merrymoogles/Mogri_icon_08_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Pomguard <img src="./images/merrymoogles/6.png"></h2>
+                            You are a very active part of the community, both in game and in discord, always first to respond to chat and ready to join in 
+                            and fill a spot if someone needs helps. You enjoy extra privileges like decorating and gardening. You love the FC and you enjoy 
+                            spending time with us, in and out of Eorzea.
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_07_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Moglin <img src="./images/merrymoogles/5.png"></h2>
+                            The Members! You ARE the heart of the Merry Moogles. Thank you for being a Moglin!                   
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_13_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Kupo Nut <img src="./images/merrymoogles/2.png"></h2>
+                            Welcome! You've just joined us. You are who all the other Merry Moogles want to meet!                
+                        </div>
+                    </div>
+                </div>
+                <div class="merryMoogleRanks" style="padding-bottom:10vh;">
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_06_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>On Vacation <img src="./images/merrymoogles/4.png"></h2>
+                            You're taking a planned vacation from the game, and that's okay. You haven't logged in for a few months. We understand. Life comes first. We'll be here 
+                            when you get back.                       
+                        </div>
+                    </div>
+                    <div class="merryMoogleRank">
+                        <div class="mmRankImage">
+                            <img src="./images\merrymoogles\Mogri_icon_04_l.png">                            
+                        </div>
+                        <div class="mmRankText">
+                            <h2>Member of the Month <img src="./images/merrymoogles/8.png"></h2>
+                            This is a new feature of our FC that we will be adding in the future. Each month we will choose
+                             a member who has truly shined during the previous month and deserves some recognition.                   
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+    <footer>
+        <div class="footer-nav">
+
+        </div>
+    </footer> 
+</body>
+
+</html>
